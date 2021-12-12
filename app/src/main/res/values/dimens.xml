@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="margin_above_tags">10dp</dimen>
+    <dimen name="margin_above_tag_title">20dp</dimen>
+    <dimen name="favourite_button_margin">10dp</dimen>
+</resources>

@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context=".detailedview.DetailedViewFragment">
+
+    <data>
+
+        <variable
+            name="post"
+            type="com.example.boored.util.DisplayModel" />
+
+        <variable
+            name="viewModel"
+            type="com.example.boored.detailedview.DetailedViewViewModel" />
+    </data>
+
+    <ScrollView
+        android:id="@+id/nested_scroll_view"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <RelativeLayout
+            android:id="@+id/linear_layout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <FrameLayout
+                android:id="@+id/frame_layout"
+                android:layout_alignParentTop="true"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <com.github.chrisbanes.photoview.PhotoView
+                    android:id="@+id/detailed_image_view"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    app:imageUrlFullRes="@{post.fileUrl}"
+                    tools:src="@drawable/ic_baseline_smoke_free_24" />
+
+                <VideoView
+                    android:id="@+id/detailed_video_view"
+                    android:layout_gravity="center"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    tools:src="@drawable/ic_baseline_smoke_free_24" />
+
+                <ProgressBar
+                    android:id="@+id/progress_bar"
+                    android:animationResolution="25"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:visibility="gone"
+                    android:layout_gravity="center"
+                    android:indeterminate="true"
+                    android:indeterminateBehavior="repeat" />
+
+            </FrameLayout>
+
+            <ImageButton
+                android:layout_width="wrap_content"
+                android:layout_alignParentTop="true"
+                android:layout_alignParentEnd="true"
+                android:layout_margin="24dp"
+                android:layout_height="wrap_content"
+                android:src="@drawable/ic_baseline_arrow_back_24"
+
+                android:background="@android:color/transparent"
+                android:onClick="@{() -> viewModel.navigateBack()}" />
+
+            <Button
+                android:layout_below="@id/frame_layout"
+                android:onClick="@{() -> viewModel.copySourceToClipboard()}"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentStart="true"
+                android:layout_margin="@dimen/favourite_button_margin"
+                android:text="@string/source" />
+
+            <com.google.android.material.floatingactionbutton.FloatingActionButton
+                android:layout_below="@id/frame_layout"
+
+                android:id="@+id/favourite_button"
+                android:onClick="@{() -> viewModel.toggleFavourite()}"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:layout_margin="@dimen/favourite_button_margin"
+                android:gravity="end"
+                android:src="@drawable/heart_outline"
+                app:rippleColor="@color/primaryLightColor"
+                app:backgroundTint="@color/elevation2"
+                app:tint="@android:color/white"
+                app:borderWidth="0dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent" />
+
+            <include
+                android:id="@+id/tags"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/favourite_button"
+                layout="@layout/detailed_information_fragment" />
+
+        </RelativeLayout>
+
+    </ScrollView>
+
+
+</layout>

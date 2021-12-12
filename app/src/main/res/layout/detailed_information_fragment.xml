@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="viewModel"
+            type="com.example.boored.detailedview.DetailedViewViewModel" />
+
+        <variable
+            name="post"
+            type="com.example.boored.util.DisplayModel" />
+    </data>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:id="@+id/linear_layout"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="20dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/character_tags" />
+
+            <com.google.android.flexbox.FlexboxLayout
+                android:id="@+id/character_segment"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/margin_above_tags"
+                app:alignContent="flex_start"
+                app:alignItems="flex_start"
+                app:dividerDrawable="@drawable/spacer_4dp"
+                app:flexWrap="wrap"
+                app:showDivider="beginning|middle" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/margin_above_tag_title"
+                android:text="@string/artist_tags" />
+
+            <com.google.android.flexbox.FlexboxLayout
+                android:id="@+id/artist_segment"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/margin_above_tags"
+                app:alignContent="flex_start"
+                app:alignItems="flex_start"
+                app:dividerDrawable="@drawable/spacer_4dp"
+                app:flexWrap="wrap"
+                app:showDivider="beginning|middle" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/margin_above_tag_title"
+                android:text="@string/copyright_tags" />
+
+            <com.google.android.flexbox.FlexboxLayout
+                android:id="@+id/copyright_segment"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/margin_above_tags"
+                app:alignContent="flex_start"
+                app:alignItems="flex_start"
+                app:dividerDrawable="@drawable/spacer_4dp"
+                app:flexWrap="wrap"
+                app:showDivider="beginning|middle" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/margin_above_tag_title"
+                android:text="@string/general_tags" />
+
+            <com.google.android.flexbox.FlexboxLayout
+                android:id="@+id/general_segment"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/margin_above_tags"
+                app:alignContent="flex_start"
+                app:alignItems="flex_start"
+                app:dividerDrawable="@drawable/spacer_4dp"
+                app:flexWrap="wrap"
+                app:showDivider="beginning|middle" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/margin_above_tag_title"
+                android:text="@string/meta_tags" />
+
+            <com.google.android.flexbox.FlexboxLayout
+                android:id="@+id/meta_segment"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/margin_above_tags"
+                app:alignContent="flex_start"
+                app:alignItems="flex_start"
+                app:dividerDrawable="@drawable/spacer_4dp"
+                app:flexWrap="wrap"
+                app:showDivider="beginning|middle" />
+
+
+
+        </LinearLayout>
+
+</layout>

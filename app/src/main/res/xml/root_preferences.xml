@@ -1,0 +1,58 @@
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <PreferenceCategory app:title="@string/general">
+
+        <Preference
+            android:id="@+id/storage"
+            app:key="storage_location"
+            app:summary=""
+            app:defaultValue="/storage/emulated/0/boored"
+            app:title="Choose download directory" />
+
+        <ListPreference
+            app:key="@string/server"
+            app:title="Server"
+            app:entries="@array/server_entries"
+            app:entryValues="@array/server_values"
+            app:defaultValue="0" />
+
+    </PreferenceCategory>
+
+    <PreferenceCategory app:title="Tag Search">
+
+        <SeekBarPreference
+            android:max="5"
+            app:defaultValue="2"
+            app:key="scroll_columns_tag_search"
+            app:min="1"
+            app:seekBarIncrement="1"
+            app:showSeekBarValue="true"
+            app:title="Number of columns" />
+
+        <CheckBoxPreference
+            app:defaultValue="false"
+            app:key="use_preview_tag_search"
+            app:title="Low resolution preview" />
+
+    </PreferenceCategory>
+
+    <PreferenceCategory app:title="Favourites">
+
+        <SeekBarPreference
+            android:max="5"
+            app:defaultValue="2"
+            app:key="scroll_columns_favourites"
+            app:min="1"
+            app:seekBarIncrement="1"
+            app:showSeekBarValue="true"
+            app:title="Number of columns" />
+
+        <CheckBoxPreference
+            app:defaultValue="false"
+            app:key="use_preview_favourites"
+            app:title="Low resolution preview" />
+
+    </PreferenceCategory>
+
+</PreferenceScreen>

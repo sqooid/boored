@@ -1,0 +1,25 @@
+<!--?xml version="1.0" encoding="UTF-8"?-->
+<resources>
+    <color name="primaryColor">#424242</color>
+    <color name="primaryLightColor">#6d6d6d</color>
+    <color name="primaryDarkColor">#1b1b1b</color>
+    <color name="secondaryColor">#0091ea</color>
+    <color name="secondaryLightColor">#64c1ff</color>
+    <color name="secondaryDarkColor">#0064b7</color>
+    <color name="primaryTextColor">#ffffff</color>
+    <color name="secondaryTextColor">#000000</color>
+    
+    <color name="colorPrimary">#424242</color>
+    <color name="colorPrimaryDark">#1b1b1b</color>
+    <color name="colorAccent">#64c1ff</color>
+
+    <color name="faintTextColor">#666666</color>
+    <color name="red">#FF0000</color>
+    <color name="likeButtonBackground">#992424</color>
+    <color name="white">#FFFFFF</color>
+
+    <color name="backgroundColor">#121212</color>
+    <color name="elevation1">#181818</color>
+    <color name="elevation2">#242424</color>
+    <color name="elevation3">#303030</color>
+</resources>

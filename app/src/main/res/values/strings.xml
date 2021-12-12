@@ -1,0 +1,39 @@
+<resources>
+    <string name="app_name">Boored</string>
+    <string name="tag_search">Tag Search</string>
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="favourites">Favourites</string>
+    <string name="search_tags">Search Tags</string>
+    <string name="enter_tags">Enter tags</string>
+    <string name="show_information">show_information</string>
+    <string name="character_tags">Characters</string>
+    <string name="artist_tags">Artists</string>
+    <string name="copyright_tags">Copyrights</string>
+    <string name="general_tags">Tags</string>
+    <string name="meta_tags">Meta Tags</string>
+    <string name="no_tags">No tags</string>
+    <!-- Preference Titles -->
+    <string name="messages_header">Messages</string>
+    <string name="sync_header">Sync</string>
+
+    <!-- Messages Preferences -->
+    <string name="signature_title">Your signature</string>
+    <string name="reply_title">Default reply action</string>
+
+    <!-- Sync Preferences -->
+    <string name="sync_title">Sync email periodically</string>
+    <string name="attachment_title">Download incoming attachments</string>
+    <string name="attachment_summary_on">Automatically download attachments for incoming emails
+    </string>
+    <string name="attachment_summary_off">Only download attachments when manually requested</string>
+    <string name="settings">Settings</string>
+    <string name="general">General</string>
+    <string name="download_all">Download All</string>
+    <string name="channel_name">Anitag</string>
+    <string name="channel_description">Notifications from Anitag</string>
+    <string name="source">Source</string>
+    <string name="server">server</string>
+    <string name="danbooru">Danbooru</string>
+    <string name="gelbooru">Gelbooru</string>
+
+</resources>

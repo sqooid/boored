@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/tag_search">
+
+    <fragment
+        android:id="@+id/tag_search"
+        android:name="com.example.boored.tagsearch.TagSearchFragment"
+        android:label="Tag Search"
+        tools:layout="@layout/tag_search_fragment" >
+        <action
+            android:id="@+id/tag_search_show_detailed"
+            app:destination="@id/detailedViewFragment" />
+        <argument
+            android:name="linkedTag"
+            android:defaultValue=""
+            app:argType="string" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/favourites"
+        android:name="com.example.boored.favourites.FavouritesFragment"
+        android:label="Favourites"
+        tools:layout="@layout/favourites_fragment" >
+        <action
+            android:id="@+id/favourites_show_detailed"
+            app:destination="@id/detailedViewFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/detailedViewFragment"
+        android:name="com.example.boored.detailedview.DetailedViewFragment"
+        android:label="Post {postNumber}"
+        tools:layout="@layout/detailed_view_fragment" >
+        <argument
+            android:name="post"
+            app:argType="com.example.boored.util.DisplayModel" />
+        <argument
+            android:name="postNumber"
+            app:argType="integer" />
+        <action
+            android:id="@+id/followTag"
+            app:destination="@id/tag_search" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/settings"
+        android:name="com.example.boored.SettingsFragment"
+        android:label="SettingsFragment" />
+
+</navigation>
