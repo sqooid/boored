@@ -14,10 +14,10 @@
         <item name="android:textColor">@color/primaryTextColor</item>
     </style>
 
-    <style name="ActionBarTheme" parent="ThemeOverlay.MaterialComponents.Dark.ActionBar">
+    <style name="ActionBarTheme" parent="Widget.MaterialComponents.Toolbar.Primary">
         <item name="android:background">@color/elevation2</item>
-        <item name="actionMenuTextColor">@color/secondaryTextColor</item>
-        <item name="android:actionMenuTextColor">@color/secondaryTextColor</item>
+        <item name="actionMenuTextColor">@color/primaryTextColor</item>
+        <item name="android:actionMenuTextColor">@color/primaryTextColor</item>
         <item name="theme">@style/ThemeOverlay.AppCompat.Dark.ActionBar</item>
         <item name="popupTheme">@style/AppbarPopupTheme</item>
         <item name="android:textColorPrimary">@color/secondaryTextColor</item>
@@ -26,8 +26,20 @@
 
     <style name="AppbarPopupTheme" parent="ThemeOverlay.AppCompat.Dark">
         <item name="itemBackground">@color/primaryColor</item>
-        <item name="actionMenuTextColor">@color/secondaryTextColor</item>
-        <item name="android:actionMenuTextColor">@color/secondaryTextColor</item>
+        <item name="actionMenuTextColor">@color/primaryTextColor</item>
+        <item name="android:actionMenuTextColor">@color/primaryTextColor</item>
+        <item name="android:colorBackground">@color/elevation3</item>
+        <item name="android:textColor">@color/primaryTextColor</item>
+    </style>
+
+    <style name="ToolbarTheme" parent="ThemeOverlay.AppCompat.Dark.ActionBar">
+        <item name="android:textColorPrimary">@color/primaryTextColor</item>
+        <item name="android:textColorSecondary">@color/primaryTextColor</item>
+        <item name="android:textColor">@color/primaryTextColor</item>
+    </style>
+
+    <style name="ToolbarStyle" parent="ThemeOverlay.MaterialComponents.Toolbar.Primary">
+        <item name="colorOnPrimary">@color/primaryTextColor</item>
     </style>
 
 </resources>

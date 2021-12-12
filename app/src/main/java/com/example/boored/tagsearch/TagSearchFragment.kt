@@ -133,6 +133,20 @@ class TagSearchFragment : Fragment() {
         val searchManager = activity?.getSystemService(Context.SEARCH_SERVICE) as SearchManager
         val searchView = searchItem?.actionView as SearchView
 
+        searchView.addOnAttachStateChangeListener(object : View.OnAttachStateChangeListener {
+            override fun onViewAttachedToWindow(v: View?) {
+                for (i in 1 until menu.size()) {
+                    menu.getItem(i).isVisible = false
+                }
+            }
+
+            override fun onViewDetachedFromWindow(v: View?) {
+                for (i in 0 until menu.size()) {
+                    menu.getItem(i).isVisible = true
+                }
+            }
+
+        })
 
         with(searchView) {
             setSearchableInfo(searchManager.getSearchableInfo(activity?.componentName))
@@ -144,6 +158,7 @@ class TagSearchFragment : Fragment() {
                 if (lastQuery != "") {
                     searchView.setQuery(lastQuery, false)
                 }
+
             }
 
             /**
@@ -194,11 +209,11 @@ class TagSearchFragment : Fragment() {
      */
     override fun onPrepareOptionsMenu(menu: Menu) {
         super.onPrepareOptionsMenu(menu)
-        for (i in 1..2) {
+        for (i in 1 until menu.size()) {
             val menuItem = menu.getItem(i)
             val title = menuItem.title.toString()
             val newTitle = SpannableString(title)
-            newTitle.setSpan(ForegroundColorSpan(Color.BLACK), 0, newTitle.length, Spannable.SPAN_EXCLUSIVE_EXCLUSIVE)
+            newTitle.setSpan(ForegroundColorSpan(Color.WHITE), 0, newTitle.length, Spannable.SPAN_EXCLUSIVE_EXCLUSIVE)
             menuItem.title = newTitle
         }
     }

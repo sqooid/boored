@@ -11,9 +11,11 @@
 
     <item
         android:id="@+id/danbooru_menu_option"
-        android:title="@string/danbooru" />
+        android:title="@string/danbooru"
+        app:showAsAction="never"/>
     <item
         android:id="@+id/gelbooru_server_option"
-        android:title="@string/gelbooru" />
+        android:title="@string/gelbooru"
+        app:showAsAction="never"/>
 
 </menu>

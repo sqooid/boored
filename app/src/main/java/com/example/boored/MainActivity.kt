@@ -3,9 +3,12 @@ package com.example.boored
 import android.app.NotificationChannel
 import android.app.NotificationManager
 import android.content.Context
+import android.graphics.Color
 import android.opengl.Visibility
 import android.os.Build
 import android.os.Bundle
+import android.text.SpannableString
+import android.text.style.ForegroundColorSpan
 import android.util.Log
 import android.view.GestureDetector
 import android.view.MotionEvent
@@ -48,6 +51,7 @@ class MainActivity : AppCompatActivity() {
         // Nav controller
         val navController = findNavController(R.id.nav_host_fragment)
 
+
         setSupportActionBar(binding.toolbar)
 
         // Setting up action bar
@@ -55,6 +59,8 @@ class MainActivity : AppCompatActivity() {
 
         // Setting up left navigation drawer
         binding.navigationView.setupWithNavController(navController)
+
+
     }
 
 

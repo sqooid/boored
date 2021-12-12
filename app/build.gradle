@@ -30,9 +30,28 @@ android {
     }
 
     buildTypes {
-        release {
+        getByName("release") {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+
+        getByName("debug") {
+            applicationIdSuffix = ".debug"
+        }
+    }
+
+    flavorDimensions "version"
+    productFlavors {
+        create("unsafe") {
+            dimension = "version"
+            applicationIdSuffix = ".unsafe"
+            versionNameSuffix = "-unsafe"
+        }
+
+        create("safe") {
+            dimension = "version"
+            applicationIdSuffix = ".safe"
+            versionNameSuffix = "-safe"
         }
     }
 
