@@ -50,7 +50,7 @@ class TagSearchFragment : Fragment() {
     private lateinit var preferences: SharedPreferences
 
     // Keeping track of current source server
-    private  var server: Int = 0
+    private  var server: Int = Constants.GELBOORU
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -102,7 +102,6 @@ class TagSearchFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         val args = TagSearchFragmentArgs.fromBundle(requireArguments())
         if (args.linkedTag != "") {
-            server = preferences.getString("server", "0")!!.toInt()
             viewModel.doInitialSearchWithTags(server, args.linkedTag)
         }
     }
@@ -171,7 +170,6 @@ class TagSearchFragment : Fragment() {
                 override fun onQueryTextSubmit(query: String?): Boolean {
                     searchItem.collapseActionView()
                     if (query != null) {
-                        server = preferences.getString("server", "0")!!.toInt()
                         viewModel.doInitialSearchWithTags(server, query)
                         Log.i("Test", "Search made")
                     }

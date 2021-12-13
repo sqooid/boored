@@ -105,8 +105,6 @@
                 app:flexWrap="wrap"
                 app:showDivider="beginning|middle" />
 
-
-
         </LinearLayout>
 
 </layout>

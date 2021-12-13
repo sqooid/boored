@@ -2,6 +2,7 @@ package com.example.boored.util
 
 import android.app.Application
 import android.util.Log
+import android.widget.Toast
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.Transformations
@@ -16,8 +17,9 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
 import retrofit2.HttpException
 import java.io.File
+import java.io.IOException
 
-class PostsRepository(private val postsDatabase: PostsDatabase) {
+class PostsRepository(private val postsDatabase: PostsDatabase, private val application: Application) {
 
     val favouritesList = Transformations.map(postsDatabase.postsDao.getByDate()) {
         it.toDisplayModel()
@@ -78,9 +80,11 @@ class PostsRepository(private val postsDatabase: PostsDatabase) {
                     GelbooruApi.gelbooruService.getPosts(encodedTags, searchLimit, page).postList.gelbooruToDisplayModel()
             }
         } catch (e: HttpException) {
-            Log.i("test","Post limit decreased")
+            Log.i("Test","Post limit decreased")
             searchLimit -= 20
             getPostsFromNetwork(server, tags, page)
+        } catch(e: IOException) {
+            Toast.makeText(application, "Connection failed", Toast.LENGTH_SHORT).show()
         }
 
     }
@@ -100,10 +104,16 @@ class PostsRepository(private val postsDatabase: PostsDatabase) {
     suspend fun getSinglePostFromNetwork(post: DisplayModel) {
         val server = post.domain
         val id = post.id
-        _singlePost.value = when (server) {
-            Constants.DANBOORU -> DanbooruApi.danbooruService.getSinglePost(id).danbooruToDisplayModel()
-            else -> GelbooruApi.gelbooruService.getSinglePost(id).post?.gelbooruToDisplayModel()
+        try {
+            _singlePost.value = when (server) {
+                Constants.DANBOORU -> DanbooruApi.danbooruService.getSinglePost(id).danbooruToDisplayModel()
+                else -> GelbooruApi.gelbooruService.getSinglePost(id).post?.gelbooruToDisplayModel()
+            }
+        } catch (e: IOException) {
+            Log.i("Test", "Single post connection error")
+            _singlePost.value = post
         }
+
     }
 
     fun clearSinglePost() {

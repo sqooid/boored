@@ -1,5 +1,6 @@
 package com.example.boored.network
 
+import android.util.Log
 import com.example.boored.util.Constants
 import com.example.boored.util.DisplayModel
 import com.squareup.moshi.Json
@@ -95,6 +96,7 @@ fun GelbooruPostNet.gelbooruToDisplayModel(): DisplayModel {
  * List function to convert net data to display model
  */
 fun List<GelbooruPostNet>.gelbooruToDisplayModel(): List<DisplayModel> {
+
     return map {
         DisplayModel(
             domain = Constants.GELBOORU,

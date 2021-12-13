@@ -24,7 +24,7 @@ class DetailedViewViewModel(
     /**
      * Repository
      */
-    private val repository = PostsRepository(getDatabase(application))
+    private val repository = PostsRepository(getDatabase(application), application)
 
     /**
      * Live data variables

@@ -46,7 +46,7 @@ class DetailedViewFragment : Fragment() {
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
         /**
          * Creating data binding
          */
@@ -198,16 +198,23 @@ class DetailedViewFragment : Fragment() {
         videoView.setMediaController(mediaController)
     }
 
+    private fun splitTagList(tagList: String) : List<String> {
+        if (tagList.isEmpty()) {
+            return emptyList()
+        }
+        return tagList.split(" ").filter { it.isNotEmpty() }
+    }
+
     private fun generateTags(post: DisplayModel, inflater: LayoutInflater) {
-        addTagCards(post.tagStringCharacter.split(" "), binding.tags.characterSegment, inflater)
-        addTagCards(post.tagStringArtist.split(" "), binding.tags.artistSegment, inflater)
-        addTagCards(post.tagStringCopyright.split(" "), binding.tags.copyrightSegment, inflater)
-        addTagCards(post.tagStringGeneral.split(" "), binding.tags.generalSegment, inflater)
-        addTagCards(post.tagStringMeta.split(" "), binding.tags.metaSegment, inflater)
+        addTagCards(splitTagList(post.tagStringCharacter), binding.tags.characterSegment, inflater)
+        addTagCards(splitTagList(post.tagStringArtist), binding.tags.artistSegment, inflater)
+        addTagCards(splitTagList(post.tagStringCopyright), binding.tags.copyrightSegment, inflater)
+        addTagCards(splitTagList(post.tagStringGeneral), binding.tags.generalSegment, inflater)
+        addTagCards(splitTagList(post.tagStringMeta), binding.tags.metaSegment, inflater)
     }
 
     private fun addTagCards(tags: List<String>, view: FlexboxLayout, inflater: LayoutInflater) {
-        if (tags[0] == "") {
+        if (tags.isEmpty()) {
             val emptyView = inflater.inflate(R.layout.no_tags_placeholder, view, false)
             view.addView(emptyView)
         } else {

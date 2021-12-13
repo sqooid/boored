@@ -27,7 +27,7 @@ import java.io.File
 
 class FavouritesViewModel(private val application: Application) : ViewModel() {
 
-    private val repository = PostsRepository(getDatabase(application))
+    private val repository = PostsRepository(getDatabase(application), application)
     val posts = repository.favouritesList
     private val preferences: SharedPreferences = application.getSharedPreferences(Constants.PREFERENCE_NAME, 0)
     var downloadInProgress = false

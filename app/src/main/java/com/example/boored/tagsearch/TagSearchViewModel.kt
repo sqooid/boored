@@ -5,14 +5,17 @@ import androidx.lifecycle.*
 import com.example.boored.database.getDatabase
 import com.example.boored.util.DisplayModel
 import com.example.boored.util.PostsRepository
+import com.example.boored.util.hasInternet
+import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
+import kotlinx.coroutines.withContext
 
-class TagSearchViewModel(application: Application) : ViewModel() {
+class TagSearchViewModel(val application: Application) : ViewModel() {
 
     /**
      * Repository
      */
-    private val repository = PostsRepository(getDatabase(application))
+    private val repository = PostsRepository(getDatabase(application), application)
 
     val posts = repository.searchList
 
@@ -34,11 +37,15 @@ class TagSearchViewModel(application: Application) : ViewModel() {
      * Function that is run when user hits search button. Resets posts
      */
     fun doInitialSearchWithTags(server: Int, tags: String) {
+
         _searchParameters.value = tags
         currentTags = tags
         pageNumber = 0
         repository.searchLimit = 100
         viewModelScope.launch {
+            withContext(Dispatchers.Default) {
+                hasInternet(application)
+            }
             repository.getPostsFromNetwork(server, tags, pageNumber)
             _postSuccess.value = true
             if (posts.value.isNullOrEmpty()) {
@@ -48,7 +55,7 @@ class TagSearchViewModel(application: Application) : ViewModel() {
     }
 
     /**
-     * Function to call when the next page of posts is requestd
+     * Function to call when the next page of posts is requested
      */
     fun getMorePosts(server: Int) {
         pageNumber++

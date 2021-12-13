@@ -1,20 +1,13 @@
-package com.example.boored.util
+package com.example.boored
 
 import android.annotation.SuppressLint
-import android.content.Intent
 import android.content.SharedPreferences
-import android.content.res.Configuration
-import android.os.Build
 import android.os.Bundle
-import android.provider.Settings
 import android.util.Log
-import androidx.appcompat.app.AppCompatActivity
-import androidx.preference.ListPreference
 import androidx.preference.Preference
 import androidx.preference.PreferenceFragmentCompat
 import com.codekidlabs.storagechooser.StorageChooser
 import com.codekidlabs.storagechooser.utils.DiskUtil
-import com.example.boored.R
 import com.example.boored.util.Constants
 import com.kotlinpermissions.KotlinPermissions
 
